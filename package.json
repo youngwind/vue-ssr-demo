@@ -1,0 +1,22 @@
+{
+  "name": "vue-ssr-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "vue": "^2.5.13",
+    "vue-loader": "^13.6.2",
+    "vue-server-renderer": "^2.5.13",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0"
+  }
+}
