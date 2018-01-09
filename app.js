@@ -1,9 +1,13 @@
 const Vue = require('vue');
 const App = require('./App.vue').default;
+const createStore = require('./store');
 
-var app = new Vue({
-    el: '#app',
-    components: {
-        App
-    }
-});
+
+module.exports = function (createApp) {
+    const store = createStore();
+    const app = new Vue({
+        store,
+        render: h => h(App)
+    })
+    return {app, store}
+};
