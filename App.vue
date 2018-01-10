@@ -14,7 +14,7 @@
     }
 </style>
 <script>
-    import './registerGlobals'
+    // import './registerGlobals'
     import Foo from './components/Foo.vue';
     import Bar from './components/Bar.vue';
 

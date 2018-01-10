@@ -1,40 +1,24 @@
 <template>
     <div class='bar'>
         <h1>Bar</h1>
-        <p>服务端渲染字段：{{prefetchData}} </p>
+        <p>ajax数据：{{bar}} </p>
     </div>
 </template>
 <style>
     .bar{
-        background: blue;
+        background: #9e9ecd;
     }
 </style>
 
 <script>
     export default {
-        data() {
-            return {
-                name: ''
-            }
-        },
-        beforeUpdate() {
-          console.log('重新渲染');
-        },
         asyncData({store}) {
-            return store.dispatch('fetchItem');
+            return store.dispatch('fetchBar');
         },
-        // computed: {
-        //     msg() {
-        //         return this.$store.state.msg;
-        //     }
-        // },
-        prefetchData: function (tagName) {
-            return new Promise((resolve, reject) => {
-                resolve({
-                    tagName,
-                    data: '123'
-                });
-            })
+        computed: {
+            bar() {
+                return this.$store.state.bar;
+            }
         },
         created() {
             console.log('bar created');

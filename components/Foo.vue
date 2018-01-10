@@ -1,8 +1,7 @@
 <template>
     <div class='foo'>
         <h1>Foo</h1>
-        <h2>名字：{{name}}</h2>
-        <p>{{msg}} </p>
+        <p>ajax数据：{{foo}} </p>
     </div>
 </template>
 <style>
@@ -12,23 +11,16 @@
 </style>
 <script>
     export default {
-        data() {
-            return {
-                msg: 'foo',
-                name: ''
+        asyncData({store}) {
+            return store.dispatch('fetchFoo');
+        },
+        computed: {
+            foo() {
+                return this.$store.state.foo;
             }
         },
-        // prefetchData() {
-        //     return {
-        //         key: 'name',
-        //         fn: new Promise((resolve, reject) => {
-        //             resolve("456");
-        //         })
-        //     };
-        // },
         created() {
             console.log('foo created');
-            // console.log(this.a)
         }
     }
 </script>
