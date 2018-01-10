@@ -1,17 +1,15 @@
-const Vue = require('vue');
-const App = require('./App.vue').default;
-const createStore = require('./store');
+import Vue from 'vue';
+import App from './App.vue';
+import createStore from './store';
 
-
-module.exports = function (context) {
+export default function (context) {
     const store = createStore();
-    console.log('开始 new vue');
     let app = new Vue({
         store,
         render: h => h(App)
     });
-    console.log('new vue 结束');
 
+    // 找到所有 prefetchData 方法
     let components = App.components;
     let prefetchFns = [];
     for (let key in components) {
@@ -29,5 +27,4 @@ module.exports = function (context) {
         context.state = store.state;
         return app;
     });
-
 };

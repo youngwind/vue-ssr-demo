@@ -26,23 +26,17 @@
             }
         },
 
-
         beforeCreate() {
             console.log('App beforeCreate');
-            // console.log(this.a);
-            // console.log(this.$options);
         },
         created() {
             console.log('App created');
-            // console.log(this.a)
         },
         beforeMount() {
             console.log('App beforeMount');
-
         },
         mounted() {
             console.log('App mounted');
-            console.log(document);
         },
         methods: {
             trigger() {
