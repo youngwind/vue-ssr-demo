@@ -1,7 +1,7 @@
 <template>
     <div class='bar'>
         <h1>Bar</h1>
-        <p>ajax数据：{{bar}} </p>
+        <p>ajax数据：{{prefetchData}} </p>
     </div>
 </template>
 <style>
@@ -12,13 +12,13 @@
 
 <script>
     export default {
-        asyncData({store}) {
-            return store.dispatch('fetchBar');
-        },
-        computed: {
-            bar() {
-                return this.$store.state.bar;
-            }
+        prefetchData: function (tagName) {
+            return new Promise((resolve, reject) => {
+                resolve({
+                    tagName,
+                    data: 'Bar ajax 数据'
+                });
+            })
         },
         created() {
             console.log('bar created');
